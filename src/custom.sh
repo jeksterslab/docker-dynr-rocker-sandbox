@@ -2,6 +2,20 @@
 
 set -e
 
+# Solution to hardcoded Makevars in the arma branch
+R -e "                      \
+    install.packages(       \
+        c(                  \
+          'Rcpp',           \
+          'RcppArmadillo',  \
+          'RcppGSL'         \
+        ),                  \
+        repos = 'https://packagemanager.rstudio.com/all/__linux__/jammy/latest', \
+        lib = file.path(Sys.getenv('R_HOME'), 'library')                         \
+    )                                                                            \
+"
+
+# Solution to documentation issues
 R -e "                                                    \
     remotes::install_version(                             \
         package = 'roxygen2',                             \
@@ -11,9 +25,9 @@ R -e "                                                    \
 "
 
 # main
-git clone https://github.com/mhunter1/dynr.git
+# git clone https://github.com/mhunter1/dynr.git
 # arma
-#git clone -b arma https://github.com/mhunter1/dynr.git
+git clone -b arma https://github.com/mhunter1/dynr.git
 cd dynr
 ./configure
 make clean install

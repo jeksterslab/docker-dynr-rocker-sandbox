@@ -18,6 +18,9 @@ install2.r --error --skipinstalled -n -1 \
   mice           \
   numDeriv       \
   plyr           \
+  Rcpp           \
+  RcppArmadillo  \
+  RcppGSL        \
   Rdpack         \
   remotes        \
   reshape2       \
@@ -28,15 +31,3 @@ install2.r --error --skipinstalled -n -1 \
   tibble         \
   tinytex        \
   xtable
-
-R -e "                      \
-    install.packages(       \
-        c(                  \
-          'Rcpp',           \
-          'RcppArmadillo',  \
-          'RcppGSL'         \
-        ),                  \
-        repos = 'https://packagemanager.rstudio.com/all/__linux__/jammy/latest', \
-        lib = file.path(Sys.getenv('R_HOME'), 'library')                         \
-    )                                                                            \
-"
