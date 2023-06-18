@@ -10,8 +10,8 @@ R -e "                                                    \
     )                                                     \
 "
 
-# main
-git clone https://github.com/mhunter1/dynr.git
+# arma
+git clone -b arma https://github.com/mhunter1/dynr.git
 cd dynr
 ./configure
 make clean install
@@ -35,7 +35,7 @@ echo "session-default-new-project-dir=/home/${DEFAULT_USER}/project-dir" >> /etc
 chown -R "${DEFAULT_USER}:${DEFAULT_USER}" "/home/${DEFAULT_USER}/project-dir"
 
 ## build
-echo "$(git ls-remote https://github.com/mhunter1/dynr.git main)" > /etc/profile.d/container_init.sh
+echo "$(git ls-remote https://github.com/mhunter1/dynr.git arma)" > /etc/profile.d/container_init.sh
 awk '{print $1 > "/etc/profile.d/container_init.sh"}' /etc/profile.d/container_init.sh
 CONTAINER_RELEASE=$(cat /etc/profile.d/container_init.sh)
 echo "export CONTAINER_RELEASE=$CONTAINER_RELEASE" > /etc/profile.d/container_init.sh
