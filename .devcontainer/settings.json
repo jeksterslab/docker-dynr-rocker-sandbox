@@ -1,0 +1,5 @@
+{
+    "dotfiles.repository": "jeksterslab/dotfiles",
+    "dotfiles.targetPath": "~/dotfiles",
+    "dotfiles.installCommand": "/usr/bin/bash ~/dotfiles/install.sh"
+}
